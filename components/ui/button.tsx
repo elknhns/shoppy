@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {};
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, disabled, type = 'button', ...props }, ref) => (
+	({ className, children, type = 'button', ...props }, ref) => (
 		<button
 			ref={ref}
 			className={cn(

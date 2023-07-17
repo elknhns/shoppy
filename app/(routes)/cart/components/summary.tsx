@@ -1,13 +1,13 @@
 'use client';
 
+import { toast } from 'react-hot-toast';
+import { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
+import axios from 'axios';
 
 import Button from '@/components/ui/button';
 import Currency from '@/components/ui/currency';
 import useCart from '@/hooks/use-cart';
-import { useEffect, useMemo } from 'react';
-import axios from 'axios';
-import { toast } from 'react-hot-toast';
 
 export default function Summary() {
 	const searchParams = useSearchParams();
@@ -47,7 +47,11 @@ export default function Summary() {
 				</div>
 			</div>
 
-			<Button className='mt-6 w-full' onClick={onCheckout}>
+			<Button
+				className='mt-6 w-full'
+				disabled={items.length === 0}
+				onClick={onCheckout}
+			>
 				Checkout
 			</Button>
 		</div>
